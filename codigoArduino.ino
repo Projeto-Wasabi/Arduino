@@ -63,13 +63,13 @@ void loop(void)
   ldrLux = LUX_CALC_SCALAR * pow(ldrResistance, LUX_CALC_EXPONENT);
  
   // Printando os resultados
-  Serial.print("Capitados pelo sensor")
+  Serial.print("Capitados pelo sensor");
   Serial.print("Bits: "); 
   Serial.println(ldrRawData);
   // Serial.print("LDR Voltage    : "); Serial.print(ldrVoltage); Serial.println(" volts");
   // Serial.print("LDR Resistance : "); Serial.print(ldrResistance); Serial.println(" Ohms");
   Serial.print("Lux: "); 
-  erial.println(ldrLux);
+  Serial.println(ldrLux);
 
 
   delay(1000);
