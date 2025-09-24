@@ -42,6 +42,8 @@ void loop(void)
   float resistorVoltage, ldrVoltage;
   float ldrResistance;
   float ldrLux;
+
+  float lumiPor = 0;
   
   // Perform the analog to digital conversion  
   ldrRawData = analogRead(LDR_PIN);
@@ -61,16 +63,13 @@ void loop(void)
   // Change the code below to the proper conversion from ldrResistance to
   // ldrLux
   ldrLux = LUX_CALC_SCALAR * pow(ldrResistance, LUX_CALC_EXPONENT);
- 
-  // Printando os resultados
-  Serial.print("Capitados pelo sensor")
-  Serial.print("Bits: "); 
-  Serial.println(ldrRawData);
-  // Serial.print("LDR Voltage    : "); Serial.print(ldrVoltage); Serial.println(" volts");
-  // Serial.print("LDR Resistance : "); Serial.print(ldrResistance); Serial.println(" Ohms");
-  Serial.print("Lux: "); 
-  erial.println(ldrLux);
 
+  lumiPor = ldrRawData / 1023.0 * 100.0; // Transformando em porcentagem
+ 
+  Serial.println(""); 
+  Serial.print(ldrLux);
+  Serial.print(';');
+  Serial.print(lumiPor);
 
   delay(1000);
 }
